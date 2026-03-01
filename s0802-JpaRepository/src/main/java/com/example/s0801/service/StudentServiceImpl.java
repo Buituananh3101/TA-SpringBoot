@@ -1,6 +1,7 @@
 package com.example.s0801.service;
 
 import com.example.s0801.dao.StudentDAO;
+import com.example.s0801.dao.StudentRepository;
 import com.example.s0801.entity.Student;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +12,10 @@ import java.util.List;
 @Service
 public class StudentServiceImpl implements StudentServive{
 
-    private StudentDAO studentDAO;
+//    private StudentDAO studentDAO; // thay bằng:
+    private StudentRepository studentRepository;
 
+    // Thấy tất cả studentDAO thành studentRepository
     @Autowired
     public StudentServiceImpl(StudentDAO studentDAO) {
         this.studentDAO = studentDAO;
@@ -28,29 +31,30 @@ public class StudentServiceImpl implements StudentServive{
 
     @Override
     public List<Student> getAllStudents() {
-        return studentDAO.getAll();
+//        return studentDAO.getAll();
+        return studentRepository.findAll();
     }
 
     @Override
     public Student getStudentById(int id) {
-        return studentDAO.getById(id);
+        return studentRepository.getById(id);
     }
 
     @Override
     @Transactional
     public Student saveStudent(Student student) {
-        return studentDAO.save(student);
+        return studentRepository.save(student);
     }
 
     @Override
     @Transactional
     public Student updateStudent(Student student) {
-        return studentDAO.saveAndFlush(student);
+        return studentRepository.saveAndFlush(student);
     }
 
     @Override
     @Transactional
     public void deleteStudent(int id) {
-        studentDAO.deleteById(id);
+        studentRepository.deleteById(id);
     }
 }
