@@ -3,13 +3,14 @@ package com.example.s0801.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="students")
-public class Student {
-    // Fields
+@Table(name="students") // Tên bảng trong database
+public class Student {  // Tên bảng trong code
+
+    // 1. Fields
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Chiến lược tạo id tự động
+    @Column(name="id") // Tên cột trong database
+    private int id;    // Tên cột trong code
 
     @Column(name="last_name", length=45)
     private String lastName;
@@ -20,16 +21,14 @@ public class Student {
     @Column(name="email", length=45)
     private String email;
 
-    // Cons
+    // 2. Cons
 
     public Student() {}
-
     public Student(String lastName, String firstName, String email) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.email = email;
     }
-
     public Student(int id, String lastName, String firstName, String email) {
         this.id = id;
         this.lastName = lastName;
@@ -37,21 +36,17 @@ public class Student {
         this.email = email;
     }
 
-    // Get set
-
+    // 3. Get set
 
     public int getId() {
         return id;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String getEmail() {
         return email;
     }
@@ -59,18 +54,17 @@ public class Student {
     public void setId(int id) {
         this.id = id;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
+
+    // 4. toString
 
     @Override
     public String toString() {
