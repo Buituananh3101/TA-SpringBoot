@@ -17,8 +17,8 @@ public class StudentServiceImpl implements StudentServive{
 
     // Thấy tất cả studentDAO thành studentRepository
     @Autowired
-    public StudentServiceImpl(StudentDAO studentDAO) {
-        this.studentDAO = studentDAO;
+    public StudentServiceImpl(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
     }
 
     // Khi viết thêm thằng service thì nhớ:
