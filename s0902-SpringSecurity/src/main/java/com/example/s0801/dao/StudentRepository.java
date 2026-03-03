@@ -13,9 +13,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     //**
     // Có thể thêm các methods khác
 
-    public Student test(); // Lúc Override thì phải
-                           // Override lại bằng hết methods mình thêm và
-                           // Override bằng hết methods của Jpa
 
 
 }
